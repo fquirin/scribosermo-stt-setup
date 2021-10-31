@@ -9,6 +9,6 @@ Ultimately the goal is to build a module for [SEPIA STT-Server](https://github.c
 
 # Credits
 
-[DanBmh](https://github.com/DanBmh) - Development and maintaining of Scribosermo
-[Domcross](https://github.com/domcross) - German STT evaluation, scripts and packages
-[SEPIA Framework](https://github.com/SEPIA-Framework) - Open assistant and STT server stuff
+- [DanBmh](https://github.com/DanBmh) - Development and maintaining of Scribosermo
+- [Domcross](https://github.com/domcross) - German STT evaluation, scripts and packages
+- [SEPIA Framework](https://github.com/SEPIA-Framework) - Open assistant and STT server stuff
