@@ -2,9 +2,9 @@
 if [ -n "$(uname -m | grep aarch64)" ]; then
 	IMAGE_TAG=test_aarch64
 elif [ -n "$(uname -m | grep armv7l)" ]; then
-	IMAGE_TAG=scribosermo_armv7l
+	IMAGE_TAG=test_armv7l
 else
-	IMAGE_TAG=scribosermo_amd64
+	IMAGE_TAG=test_amd64
 fi
 HOST_MODEL="$(realpath ~)/scribosermo/model"
 HOST_SHARE="$(realpath ~)/scribosermo/share"

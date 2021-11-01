@@ -17,10 +17,11 @@ from ds_ctcdecoder import Alphabet, Scorer, ctc_beam_search_decoder
 
 #checkpoint_file = "model/model_quantized.tflite"
 checkpoint_file = "model/model_full.tflite"
-test_wav_path = "data/test_de.wav"
 alphabet_path = "data/de/alphabet.json"
 ds_alphabet_path = "data/de/alphabet.txt"
 ds_scorer_path = "model/kenlm_de_all.scorer"
+
+test_wav_path = "data/test_de.wav"
 
 beam_size = 256
 labels_path = "data/labels.json"

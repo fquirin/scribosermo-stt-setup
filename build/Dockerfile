@@ -33,14 +33,13 @@ RUN echo 'Installing dependencies...' && \
         pip3 install tokenizers-0.10.3-cp37-cp37m-linux_aarch64.whl; \
         pip3 install transformers tqdm librosa dataset jiwer; \
     elif [ -n "$(uname -m | grep armv7l)" ]; then \
-        echo "Downloading and installing Scribosermo armv7l requirements"; \
-        echo "UNDER CONSTRUCTION"; \
+        echo "UNDER CONSTRUCTION - Downloading and installing Scribosermo armv7l requirements"; \
+		wget https://github.com/fquirin/scribosermo-stt-setup/releases/download/v0.0.1/ds_ctcdecoder-0.10.0a3-cp37-cp37m-linux_armv7l.whl; \
 		pip3 install transformers tqdm librosa dataset jiwer; \
         pip3 install --extra-index-url https://google-coral.github.io/py-repo/ tflite_runtime; \
-        pip3 install ds_ctcdecoder-0.10.0a3-cp37-cp37m-linux_aarch64.whl; \
+        pip3 install ds_ctcdecoder-0.10.0a3-cp37-cp37m-linux_armv7l.whl; \
     else \
         echo "Downloading and installing Scribosermo x86_64 requirements"; \
-        echo "UNDER CONSTRUCTION"; \
 		pip3 install transformers tqdm librosa dataset jiwer; \
         pip3 install --extra-index-url https://google-coral.github.io/py-repo/ tflite_runtime; \
         pip3 install ds-ctcdecoder==0.10.0a3; \
