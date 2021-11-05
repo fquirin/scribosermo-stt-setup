@@ -14,7 +14,7 @@ RUN echo 'Installing dependencies...' && \
     apt-get install -y --no-install-recommends \
     sudo git wget curl nano unzip zip procps \
     build-essential \
-    python3-pip python3-dev python3-setuptools python3-wheel libsndfile1 && \
+    python3-pip python3-dev python3-setuptools python3-wheel libffi-dev libsndfile1 && \
     pip3 install --upgrade pip && \
     pip3 install wheel setuptools && \
     mkdir -p /home/installer && cd /home/installer && \
@@ -31,16 +31,34 @@ RUN echo 'Installing dependencies...' && \
         pip3 install ds_ctcdecoder-0.10.0a3-cp37-cp37m-linux_aarch64.whl; \
         pip3 install regex-2021.10.23-cp37-cp37m-linux_aarch64.whl; \
         pip3 install tokenizers-0.10.3-cp37-cp37m-linux_aarch64.whl; \
-        pip3 install transformers tqdm librosa dataset jiwer; \
+		pip3 install transformers-4.12.2-py3-none-any.whl; \
+        pip3 install tqdm librosa dataset jiwer; \
     elif [ -n "$(uname -m | grep armv7l)" ]; then \
-        echo "UNDER CONSTRUCTION - Downloading and installing Scribosermo armv7l requirements"; \
-		wget https://github.com/fquirin/scribosermo-stt-setup/releases/download/v0.0.1/ds_ctcdecoder-0.10.0a3-cp37-cp37m-linux_armv7l.whl; \
-		pip3 install transformers tqdm librosa dataset jiwer; \
-        pip3 install --extra-index-url https://google-coral.github.io/py-repo/ tflite_runtime; \
+        echo "Downloading and installing Scribosermo armv7l requirements"; \
+	    wget https://github.com/fquirin/scribosermo-stt-setup/releases/download/v0.0.1/ds_ctcdecoder-0.10.0a3-cp37-cp37m-linux_armv7l.whl; \
+        wget https://github.com/fquirin/scribosermo-stt-setup/releases/download/v0.0.1/tflite_runtime-2.5.0.post1-cp37-cp37m-linux_armv7l.whl; \
+        wget https://github.com/fquirin/scribosermo-stt-setup/releases/download/v0.0.1/numpy-1.20.3-cp37-cp37m-linux_armv7l.whl; \
+        wget https://github.com/fquirin/scribosermo-stt-setup/releases/download/v0.0.1/regex-2021.11.2-cp37-cp37m-linux_armv7l.whl; \
+        wget https://github.com/fquirin/scribosermo-stt-setup/releases/download/v0.0.1/tokenizers-0.10.3-cp37-cp37m-linux_armv7l.whl; \
+        wget https://github.com/fquirin/scribosermo-stt-setup/releases/download/v0.0.1/transformers-4.12.2-py3-none-any.whl; \
+		wget https://github.com/fquirin/scribosermo-stt-setup/releases/download/v0.0.1/scipy-1.7.1-cp37-cp37m-linux_armv7l.whl; \
+		wget https://github.com/fquirin/scribosermo-stt-setup/releases/download/v0.0.1/scikit_learn-1.0.1-cp37-cp37m-linux_armv7l.whl; \
+		wget https://github.com/fquirin/scribosermo-stt-setup/releases/download/v0.0.1/llvmlite-0.36.0-cp37-cp37m-linux_armv7l.whl; \
+		wget https://github.com/fquirin/scribosermo-stt-setup/releases/download/v0.0.1/numba-0.53.0-cp37-cp37m-linux_armv7l.whl; \
+	    pip3 install numpy-1.20.3-cp37-cp37m-linux_armv7l.whl; \
+        pip3 install tflite_runtime-2.5.0.post1-cp37-cp37m-linux_armv7l.whl; \
         pip3 install ds_ctcdecoder-0.10.0a3-cp37-cp37m-linux_armv7l.whl; \
+        pip3 install regex-2021.11.2-cp37-cp37m-linux_armv7l.whl; \
+        pip3 install tokenizers-0.10.3-cp37-cp37m-linux_armv7l.whl; \
+		pip3 install transformers-4.12.2-py3-none-any.whl; \
+		pip3 install scipy-1.7.1-cp37-cp37m-linux_armv7l.whl; \
+		pip3 install scikit_learn-1.0.1-cp37-cp37m-linux_armv7l.whl; \
+		pip3 install llvmlite-0.36.0-cp37-cp37m-linux_armv7l.whl; \
+		pip3 install numba-0.53.0-cp37-cp37m-linux_armv7l.whl; \
+        pip3 install tqdm librosa dataset jiwer; \
     else \
         echo "Downloading and installing Scribosermo x86_64 requirements"; \
-		pip3 install transformers tqdm librosa dataset jiwer; \
+	    pip3 install transformers tqdm librosa dataset jiwer; \
         pip3 install --extra-index-url https://google-coral.github.io/py-repo/ tflite_runtime; \
         pip3 install ds-ctcdecoder==0.10.0a3; \
     fi && \
